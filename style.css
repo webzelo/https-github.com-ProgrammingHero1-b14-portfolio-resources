@@ -82,6 +82,7 @@ ul {
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
+    display: inline-block;
     transition: 0.3s ease;
 }
 
@@ -130,6 +131,10 @@ nav ul li a:hover {
     color: var(--primary);
 }
 
+.nav-btn {
+    padding: 10px 20px;
+}
+
 /* Hero */
 .hero-parent-root {
     background: linear-gradient(135deg, #fff8f3 0%, #ffffff 100%);
@@ -150,7 +155,7 @@ nav ul li a:hover {
     margin-bottom: 8px;
 }
 
-.hero-left h2 {
+.hero-left h1 {
     font-size: 64px;
     line-height: 1.1;
     font-weight: 800;
@@ -228,7 +233,7 @@ nav ul li a:hover {
     margin-bottom: 6px;
 }
 
-.about-box-parent h2 {
+.about-box-parent h3 {
     font-size: 16px;
     font-weight: 700;
     color: var(--text-dark);
@@ -277,7 +282,7 @@ nav ul li a:hover {
     margin-bottom: 22px;
 }
 
-.what-i-do-card h2 {
+.what-i-do-card h3 {
     font-size: 18px;
     margin-bottom: 12px;
     color: var(--text-dark);
@@ -415,23 +420,24 @@ nav ul li a:hover {
     width: fit-content;
 }
 
-/* Footer */
-footer.container {
+/* Footer Full Width */
+.footer-root {
+    width: 100%;
+    background-color: var(--light-bg);
     margin-top: 90px;
-    margin-bottom: 40px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    background: var(--light-bg);
-    padding: 60px;
-    border-radius: 22px;
-    text-align: left;
+    padding: 70px 0;
 }
 
-footer h2 {
-    font-size: 26px;
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 70px;
+}
+
+.footer-content h2 {
+    font-size: 28px;
     font-weight: 800;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
 }
 
 .footer-left p {
@@ -440,13 +446,13 @@ footer h2 {
     max-width: 460px;
 }
 
-.footer-left div {
+.social-icons {
     display: flex;
     gap: 16px;
     align-items: center;
 }
 
-.footer-left img {
+.social-icons img {
     width: 24px;
     height: 24px;
     object-fit: contain;
@@ -454,16 +460,17 @@ footer h2 {
     transition: 0.3s ease;
 }
 
-.footer-left img:hover {
+.social-icons img:hover {
     transform: translateY(-3px);
 }
 
-footer form {
+.footer-right form {
     margin-top: 18px;
 }
 
-footer form input,
-footer form textarea {
+.footer-right form input,
+.footer-right form textarea {
+    width: 100%;
     border: 1px solid transparent;
     outline: none;
     background: white;
@@ -471,19 +478,18 @@ footer form textarea {
     border-radius: 10px;
     display: block;
     margin-bottom: 14px;
-    width: 100%;
     font-family: inherit;
     font-size: 14px;
     transition: 0.3s ease;
 }
 
-footer form input:focus,
-footer form textarea:focus {
+.footer-right form input:focus,
+.footer-right form textarea:focus {
     border-color: var(--primary);
     box-shadow: 0 0 0 4px rgba(253, 110, 10, 0.12);
 }
 
-/* Responsive */
+/* Tablet Responsive */
 @media (max-width: 992px) {
     .hero-parent {
         grid-template-columns: 1fr;
@@ -499,8 +505,12 @@ footer form textarea:focus {
         justify-content: center;
     }
 
-    .hero-left h2 {
+    .hero-left h1 {
         font-size: 52px;
+    }
+
+    .about-parent {
+        padding: 70px 40px;
     }
 
     .about-box-parent {
@@ -520,12 +530,13 @@ footer form textarea:focus {
             "six six";
     }
 
-    footer.container {
+    .footer-content {
         grid-template-columns: 1fr;
-        padding: 45px 30px;
+        gap: 45px;
     }
 }
 
+/* Mobile Responsive */
 @media (max-width: 576px) {
     .container {
         padding-left: 18px;
@@ -544,7 +555,12 @@ footer form textarea:focus {
         justify-content: center;
     }
 
-    .hero-left h2 {
+    .hero-parent {
+        min-height: auto;
+        padding-top: 50px;
+    }
+
+    .hero-left h1 {
         font-size: 42px;
     }
 
@@ -577,13 +593,17 @@ footer form textarea:focus {
             "six";
     }
 
+    .resume-summary {
+        padding: 70px 18px;
+    }
+
     .resume-columns {
         grid-template-columns: 1fr;
         gap: 40px;
     }
 
-    footer.container {
-        padding: 35px 22px;
+    .footer-root {
+        padding: 50px 0;
     }
 
     .common-btn,
